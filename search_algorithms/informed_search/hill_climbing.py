@@ -1,5 +1,5 @@
 from core.node import Node
-from core.utils import manhattan, get_neighbors, reconstruct_path
+from core.utlis import manhattan, get_neighbors, reconstruct_path
 
 def hill_climbing(grid, start, goal):
     current = Node(start, h=manhattan(start, goal))
@@ -7,7 +7,8 @@ def hill_climbing(grid, start, goal):
         neighbors = get_neighbors(current.position, grid)
         if not neighbors:
             break
-        best_pos, best_cost = min(neighbors, key=lambda x: manhattan(x[:2], goal))
+        best_neighbor = min(neighbors, key=lambda x: manhattan(x[0], goal))
+        best_pos, best_cost = best_neighbor
         best_h = manhattan(best_pos, goal)
         if best_h >= current.h:
             break

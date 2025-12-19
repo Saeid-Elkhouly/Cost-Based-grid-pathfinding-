@@ -1,6 +1,6 @@
 import heapq
 from core.node import Node
-from core.utils import get_neighbors, reconstruct_path
+from core.utlis import get_neighbors, reconstruct_path
 
 
 def ucs(grid, start, goal):
